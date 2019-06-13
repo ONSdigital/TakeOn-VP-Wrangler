@@ -82,7 +82,7 @@ public class ProcessWranglerQuestionData {
         HandlerAdditionalRequest finalRequest = new HandleAdditionalClassConverter().convertToAdditionalWranglerRequest(additionalRequest);
         callPersistenceLambda(finalRequest);
         // BPM (Business Process Management) response goes here. This method puts
-        sendBpmResponse("B123-P456-M789", "QvsDQ", PropertiesUtil.getProperty(Constants.TOPIC_ARN));
+        sendBpmResponse("B123-P456-M789", "VP", PropertiesUtil.getProperty(Constants.TOPIC_ARN));
     }
 
     /**

@@ -12,5 +12,4 @@ public class GetRequest extends KeyMetaData {
     public GetRequest(String reference, String period, String survey, String instance, String validationName) {
         super(reference, period, survey, instance, validationName);
     }
-
 }
