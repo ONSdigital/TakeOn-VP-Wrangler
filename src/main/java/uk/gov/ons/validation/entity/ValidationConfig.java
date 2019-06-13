@@ -21,11 +21,9 @@ public class ValidationConfig {
         List<ValidationConfig> configuration = new ArrayList<>();
         ValidationConfig config1 = new ValidationConfig();
         config1.setQuestionCode("601");
-        config1.setDerivedQuestionCode("700");
         configuration.add(config1);
         ValidationConfig config2 = new ValidationConfig();
         config2.setQuestionCode("602");
-        config2.setDerivedQuestionCode("701");
         configuration.add(config2);
         return configuration;
     }
