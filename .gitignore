@@ -24,3 +24,10 @@ hs_err_pid*
 
 # vscode
 .vscode
+
+# Java stuff
+target/
+.classpath
+.factorypath
+.settings/
+.project
