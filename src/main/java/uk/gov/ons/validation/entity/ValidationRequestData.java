@@ -10,7 +10,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class ValidationRequestData {
+    private String questionCode;
     private String primaryValue;
-    private String comparisonValue;
-    private Object metaData;
+
 }

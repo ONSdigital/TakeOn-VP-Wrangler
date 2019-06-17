@@ -28,10 +28,9 @@ import static java.lang.String.format;
 public class ProcessWranglerQuestionData {
 
     private static final String SEND_MESSAGE = "Attempting to invoke %s with the json string %s.";
-    private static final String QUES_DER_MESSAGE = "Match Found for both Question and Derived Question. " +
-            "Question Code is %s Derived Question code is %s Question Code value %s " +
-            "and Derived Question code value is %s.";
-    private static final String VALIDATION_NAME = "QvDQ";
+    private static final String QUES_DER_MESSAGE = "Match Found for Question Code. " +
+            "Question Code is %s and Question code Value is %s ";
+    private static final String VALIDATION_NAME = "VP";
 
     private static final String INITIAL_DATA_INGESTION_INFO = "Survey is %s for the period %s, " +
             " Reference %s and instanceId %s.";
@@ -63,11 +62,9 @@ public class ProcessWranglerQuestionData {
                 InvokeConfig invokeConfig = newInvokeConfig();
                 for (QuestionInputData inputData : responses) {
                     invokeConfig.processQuestionCode(inputData, config.getQuestionCode());
-                    invokeConfig.processDerivedQuestCode(inputData, config.getDerivedQuestionCode());
-                    if (invokeConfig.isBothFound()) {
+                    if (invokeConfig.isQuestionCodeFound()) {
                         log.info(format(QUES_DER_MESSAGE, invokeConfig.getFinalQuestCode(),
-                                invokeConfig.getFinalDerivedQuestCode(), invokeConfig.getFinalQuestCodeValue(),
-                                invokeConfig.getFinalDerivedQuestValue()));
+                                invokeConfig.getFinalQuestCodeValue()));
                         callValidationLambda(invokeConfig);
                         validationResults.add(invokeConfig.getWranglerData());
                         break;
@@ -96,7 +93,7 @@ public class ProcessWranglerQuestionData {
             log.info("Before Calling Validation Lambda");
             ValidationRequestData dataElement = ValidationRequestData.builder()
                     .primaryValue(config.getFinalQuestCodeValue())
-                    .comparisonValue(config.getFinalDerivedQuestValue())
+                    .questionCode(config.getFinalQuestCode())
                     .build();
             String requestJson = new ObjectMapper().writeValueAsString(dataElement);
             String wranglerName = PropertiesUtil.getProperty(Constants.WRANGLER_NAME);

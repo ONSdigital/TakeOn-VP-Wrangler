@@ -47,29 +47,29 @@ A Lambda function to handle incoming requests containing Question Code and value
       ]
     }
 
-    Hard coded  Validation Config which has list of QuestionCode and Derived Question Code combinations for example
+    Hard coded  Validation Config which has list of QuestionCodes
 
-                Question Code 601 != Derived Question Code 700
-                Question Code 602 != Derived Question Code 701
+                Question Code 601
+                Question Code 602
 
 
-Looping through the Validation Config and prepare Json for calling Validation Lambda i.e VET
+Looping through the Validation Config and prepare Json for calling 'takeon-vp-lambda-dev-run'
 
 The Prepared Json would be similar to
 
     {
-        "primaryValue":"150",
-        "comparisonValue":"603",
-        "metaData":null
+        "questionCode":"603",
+        "primaryValue":"150"
     }
 
- Call the Validation Lambda for a each item in Validation Config and stored each ValidationResult in a list
+ Call the takeon-vp-lambda-dev-run Lambda for a each item in Validation Config and stored each ValidationResult in a list
 
- The Output from Value comparison VET would be similar to
+ The Output from takeon-vp-lambda  would be similar to
 
  {
-   "valueFormula": "150 != 603",
-   "triggered": true
+    "triggered": true,
+     "valueFormula": "146 != \"\"",
+     "questionCode": "601"
  }
 
  Amend the Question Code to each ValidationResult similar to
@@ -115,7 +115,7 @@ The Prepared Json would be similar to
 The following configuration is required:
 
 
-WRANGLER_NAME - the name of the wrangler lambda i.e VET being called within the eu-west-2 region - takeon-val-comparison-dev-valueComparison
+WRANGLER_NAME - the name of the wrangler lambda i.e VALUE PRESENT LAMBDA being called within the eu-west-2 region - takeon-vp-lambda-dev-run
 
 WRANGLER_NAME_RESPONSE_PERSISTENCE - the name of the Response persistence Lambda - response-persistence-lambda
 

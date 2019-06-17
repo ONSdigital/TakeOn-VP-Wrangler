@@ -18,11 +18,8 @@ import static java.lang.String.format;
 public class InvokeConfig {
 
     private String finalQuestCode;
-    private String finalDerivedQuestCode;
     private String finalQuestCodeValue;
-    private String finalDerivedQuestValue;
     private boolean isQuestionCodeFound;
-    private boolean isDerivedQuestFound;
     private ValidationResult wranglerData;
 
     private static final String MATCH_FOUND_QUEST = "Matching object found for Question and its code is %s.";
@@ -42,27 +39,4 @@ public class InvokeConfig {
 
     }
 
-    /**
-     * @param inputData
-     * @param configDerivedQuestCode
-     */
-    public void processDerivedQuestCode(QuestionInputData inputData, String configDerivedQuestCode) {
-        if (inputData.getQuestionCode().equals(configDerivedQuestCode)) {
-            this.isDerivedQuestFound = true;
-            this.finalDerivedQuestCode = inputData.getQuestionCode();
-            this.finalDerivedQuestValue = inputData.getResponse();
-            log.info(format(MATCH_FOUND_DERIVED_QUEST, finalDerivedQuestCode));
-
-        }
-
-    }
-
-    /**
-     * Method to find both Question and derived question code
-     */
-    public boolean isBothFound() {
-
-        return this.isDerivedQuestFound && this.isQuestionCodeFound;
-
-    }
 }
