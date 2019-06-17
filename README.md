@@ -3,48 +3,52 @@
 A Lambda function to handle incoming requests containing Question Code and value having the following JSON format:
 
     {
-      "responses": [
-        {
-          "questionCode": "601",
-          "response": "146"
-        },
-        {
-          "questionCode": "602",
-          "response": "150"
-        },
-        {
-          "questionCode": "700",
-          "response": "148"
-        },
-        {
-          "questionCode": "603",
-          "response": "602"
-        },
-        {
-          "questionCode": "701",
-          "response": "603"
-        },
-        {
-          "questionCode": "605",
-          "response": "604"
-        },
-        {
-          "questionCode": "606",
-          "response": "605"
-        },
-        {
-          "questionCode": "607",
-          "response": "606"
-        },
-        {
-          "questionCode": "608",
-          "response": "607"
-        },
-        {
-          "questionCode": "609",
-          "response": "608"
-        }
-      ]
+     "period": "201211",
+     "reference": "4990012",
+     "survey": "066",
+     "instance": "instanceid",
+     "responses": [
+       {
+         "questionCode": "601",
+         "response": "146"
+       },
+       {
+         "questionCode": "602",
+         "response": "150"
+       },
+       {
+         "questionCode": "700",
+         "response": "148"
+       },
+       {
+         "questionCode": "603",
+         "response": "602"
+       },
+       {
+         "questionCode": "701",
+         "response": "603"
+       },
+       {
+         "questionCode": "605",
+         "response": "604"
+       },
+       {
+         "questionCode": "606",
+         "response": "605"
+       },
+       {
+         "questionCode": "607",
+         "response": "606"
+       },
+       {
+         "questionCode": "608",
+         "response": "607"
+       },
+       {
+         "questionCode": "609",
+         "response": "608"
+       }
+     ]
     }
 
     Hard coded  Validation Config which has list of QuestionCodes
@@ -58,23 +62,23 @@ Looping through the Validation Config and prepare Json for calling 'takeon-vp-la
 The Prepared Json would be similar to
 
     {
-        "questionCode":"603",
+        "questionCode":"601",
         "primaryValue":"150"
     }
 
- Call the takeon-vp-lambda-dev-run Lambda for a each item in Validation Config and stored each ValidationResult in a list
+ Call the ### **takeon-vp-lambda-dev-run** Lambda for a each item in Validation Config and stored each ValidationResult in a list
 
- The Output from takeon-vp-lambda  would be similar to
+ The Output from ### **takeon-vp-lambda**  would be similar to
 
  {
     "triggered": true,
-     "valueFormula": "146 != \"\"",
+     "valueFormula": "150 != \"\"",
      "questionCode": "601"
  }
 
  Amend the Question Code to each ValidationResult similar to
 
- [{"questionCode":"601","valueFormula":"146 != 148","triggered":"true"},{"questionCode":"602","valueFormula":"150 != 603","triggered":"true"}]
+ [{"questionCode":"601","valueFormula":"150","triggered":"true"},{"questionCode":"602","valueFormula":"150","triggered":"true"}]
 
  Add Survey, period, reference and instance parameters to the result list and build the JSON in the following format
 
@@ -85,16 +89,16 @@ The Prepared Json would be similar to
      "reference": "201211",
      "survey": "066",
      "instance": "instanceid",
-     "validationName": "QvDQ",
+     "validationName": "VP",
      "validationResults": [
        {
          "questionCode": "601",
-         "valueFormula": "146 != 148",
+         "valueFormula": "146",
          "triggered": "true"
        },
        {
          "questionCode": "602",
-         "valueFormula": "150 != 603",
+         "valueFormula": "150",
          "triggered": "true"
        }
      ]
