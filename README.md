@@ -66,9 +66,9 @@ The Prepared Json would be similar to
         "primaryValue":"150"
     }
 
- Call the ### **takeon-vp-lambda-dev-run** Lambda for a each item in Validation Config and stored each ValidationResult in a list
+ Call the **takeon-vp-lambda-dev-run** Lambda for a each item in Validation Config and stored each ValidationResult in a list
 
- The Output from ### **takeon-vp-lambda**  would be similar to
+ The Output from **takeon-vp-lambda**  would be similar to
 
  {
     "triggered": true,
@@ -105,9 +105,9 @@ The Prepared Json would be similar to
    }
  }
 
- Make a call to Response Persistence Lambda
+ Make a call to **Response Persistence Lambda**
 
- Lambda Name: response-persistence-lambda
+ Lambda Name: **response-persistence-lambda**
 
  Verify the following output
 
