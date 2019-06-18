@@ -128,4 +128,4 @@ TOPIC_ARN - BPM stuff - - the arn of the topic that messages will be published t
 
 #### **Deployment**
 
-https://eu-west-2.console.aws.amazon.com/lambda/home?region=eu-west-2#/functions/wrangler-lambda?tab=graph
+https://eu-west-2.console.aws.amazon.com/lambda/home?region=eu-west-2#/functions/value-present-wrangler-lambda?tab=graph
