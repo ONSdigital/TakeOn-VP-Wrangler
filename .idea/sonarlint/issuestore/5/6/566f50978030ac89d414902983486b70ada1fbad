@@ -1,0 +1,6 @@
+
+Usquid:S1155<">Use isEmpty() to check whether the collection is empty or not.(åÃ®´
+wsquid:S00115&"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(©ÔÑôıÿÿÿÿ
+fsquid:S00112¾"FDefine and throw a dedicated exception instead of using a generic one.(½Àïæ8èí’¦¶-
+^squid:S00112."FDefine and throw a dedicated exception instead of using a generic one.(ÖÁÒó
+‰squid:S1192p"kDefine a constant instead of duplicating this literal "and send the request to Validation lambda." 4 times.(æËÊá8èí’¦¶-
